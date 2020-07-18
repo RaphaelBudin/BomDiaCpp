@@ -6,17 +6,20 @@
 class BomDia
 {
 private:
-	int ID;
-	std::string pessoa;
-	std::string bomDia;
-	std::string data;
+	std::string autor;
+	std::string mensagem;
+	int dia;
+	int mes;
+	int ano;
 
 public:
-	int getID();
-	void setID(int ID);
-	std::string getPessoa();
-	std::string getBomDia();
+	BomDia(int dia, int mes, int ano, std::string nome, std::string mensagem);
+	std::string getAutor();
+	void setAutor(std::string novoAutor);
+	std::string getMensagem();
+	void setMensagem(std::string novaMensagem);
 	std::string getData();
+	void setData(int novoDia, int novoMes, int novoAno);
 	
 };
 

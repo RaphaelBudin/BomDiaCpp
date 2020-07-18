@@ -11,6 +11,38 @@ void carregarArquivo() {
 		exit(1);
 	}
 
+	while (!fin.eof()) {
+		std::string linha;
+		std::getline(fin, linha, ',');
+		std::istringstream iss(linha);
+
+		std::string data;
+		std::getline(iss, data, ',');
+		std::istringstream issData(data);
+		//Dia, mes e ano são tratados como string por conta do getline abaixo, pois não aceita (istringstream, int, char) apenas (istringstream, string, char)
+		//Depois basta fazer o explicit casting e tudo resolvido
+		std::string dia, mes, ano;
+		std::getline(issData, dia, '/');
+		std::getline(issData, mes, '/');
+		std::getline(issData, ano);
+
+		std::string autor;
+		std::getline(iss, autor, ',');
+
+		std::string mensagem;
+		std::getline(iss, mensagem);
+
+		
+
+
+
+		
+
+		
+
+
+	}
+
 	 
 }
 int salvarArquivo() {

@@ -3,19 +3,40 @@
 #include <vector>
 #include "BomDia.h"
 
-int BomDia::getID() {
-	return this->ID;
+BomDia::BomDia(int dia, int mes, int ano, std::string autor, std::string mensagem) {
+	this->autor = autor;
+	this->mensagem = mensagem;
+	this->dia = dia;
+	this->mes = mes;
+	this->ano = ano;
 }
 
-void BomDia::setID(int novoID) {
-	this->ID = novoID;	}
 
-std::string BomDia::getPessoa() {
-	return this->pessoa;	}
 
-std::string BomDia::getBomDia() {
-	return this->bomDia;	}
+std::string BomDia::getAutor() {
+	return this->autor;			}
+
+void BomDia::setAutor(std::string novoAutor) {
+	this->autor = novoAutor;					}
+
+std::string BomDia::getMensagem() {
+	return this->mensagem;			}
+
+void BomDia::setMensagem(std::string novaMensagem) {
+	this->mensagem = novaMensagem;					}
+
 
 std::string BomDia::getData() {
-	return this->data;
+	std::string sDia, sMes, sAno;
+	sDia = (char*)this->dia;
+	sMes = (char*)this->mes;
+	sAno = (char*)this->ano;
+
+	return { sDia + '/' + sMes + '/' + sAno };		
+}
+
+void BomDia::setData(int novoDia, int novoMes, int novoAno) {
+	this->dia = novoDia;
+	this->mes = novoMes;
+	this->ano = novoAno;									
 }
