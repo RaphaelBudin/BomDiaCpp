@@ -5,7 +5,7 @@
 #include "BomDia.h"
 
 void carregarArquivo(std::vector<BomDia> &vBD);
-int salvarArquivo();
+void salvarArquivo(std::vector<BomDia> &vBD);
 int menuRetornaOpcao();
 void addBomDia();
 

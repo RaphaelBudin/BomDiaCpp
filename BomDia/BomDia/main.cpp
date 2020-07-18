@@ -9,14 +9,14 @@ int main()
 {
     std::vector<BomDia> vBD{};
     carregarArquivo(vBD);
+    salvarArquivo(vBD);
     
-
     std::cout << "BOM DIA BB!\n";
     while (1) {
         switch (menuRetornaOpcao()) {
         case 1: addBomDia();
             break;
-        case 2: salvarArquivo();
+        case 2: salvarArquivo(vBD);
             break;
         default: 
             break;

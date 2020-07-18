@@ -27,9 +27,10 @@ void carregarArquivo(std::vector<BomDia> &vBD) {
 		std::getline(issData, dia, '/');
 		std::getline(issData, mes, '/');
 		std::getline(issData, ano);
-		int iDia = std::stoi(dia);
+
+		/*int iDia = std::stoi(dia, nullptr, 10);
 		int iMes = std::stoi(mes);
-		int iAno = std::stoi(ano);
+		int iAno = std::stoi(ano);*/
 
 		std::string autor;
 		std::getline(iss, autor, ',');
@@ -37,18 +38,24 @@ void carregarArquivo(std::vector<BomDia> &vBD) {
 		std::string mensagem;
 		std::getline(iss, mensagem);
 
-		BomDia temp(iDia, iMes, iAno, autor, mensagem);
+		BomDia temp(std::stoi(dia, nullptr, 10), std::stoi(mes, nullptr, 10), std::stoi(ano, nullptr, 10), autor, mensagem);
 
 		vBD.push_back(temp);
 	}
+	fin.close();
 }
 
-int salvarArquivo() {
+void salvarArquivo(std::vector<BomDia> & vBD) {
 	std::ofstream fout	("arquivoBomDias.txt");
-	fout << "teste";
-	fout.close();
-
-	return 0;
+	for (auto p : vBD) {
+		int i = 1, tamanhovBD = vBD.size();
+		fout << p.getData() + ',' + p.getAutor() + ',' + p.getMensagem();
+		if ( i ==  tamanhovBD) {
+			fout.close();
+		}
+		fout << '\n';
+		++i;
+	}
 }
 
 
@@ -56,11 +63,13 @@ int menuRetornaOpcao() {
 	std::cout << "Menu: \n";
 	std::cout << "1. Adicionar bom dia\n";
 	std::cout << "2. Pesquisar bom dia\n";
+	std::cout << "3. Exibir bom dias\n";
+	std::cout << "8. Salvar\n";
 
 	int opcao = -1;
 	do {
 		std::cin >> opcao;
-	} while (!(opcao > 0 && opcao < 3));
+	} while (!(opcao > 0 && opcao < 9));
 
 	return opcao;
 }
