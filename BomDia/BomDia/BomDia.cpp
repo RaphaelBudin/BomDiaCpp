@@ -1,20 +1,42 @@
 #include <iostream>
-//montar e criar arquvios dos bom dias
+#include <string>
+#include <vector>
+#include "BomDia.h"
 
-//não usar namespace global. Evitar usar ao todo. No máximo usar dentro de um escopo definido
+BomDia::BomDia(int dia, int mes, int ano, std::string autor, std::string mensagem) {
+	this->autor = autor;
+	this->mensagem = mensagem;
+	this->dia = dia;
+	this->mes = mes;
+	this->ano = ano;
+}
 
-int main()
-{
-    std::cout << "BOM DIA BB!\n";
-    //Carregar bom dia de todas as pessoas na memória
-    //Menu Principal
-        //Selecionar opção
-        //Adicionar Bom Dia
-        //Adicionar Pessoa
-        //Mostrar Todos os bom dias por pessoa
-        //Mostrar Todos os bom dias por data
-        //Pesquisar Bom Dia por string
-        //Pesquisar Bom Dia por data
-        //Ordenar vetor
-        //Sair
+
+
+std::string BomDia::getAutor() {
+	return this->autor;			}
+
+void BomDia::setAutor(std::string novoAutor) {
+	this->autor = novoAutor;					}
+
+std::string BomDia::getMensagem() {
+	return this->mensagem;			}
+
+void BomDia::setMensagem(std::string novaMensagem) {
+	this->mensagem = novaMensagem;					}
+
+
+std::string BomDia::getData() {
+	std::string sDia, sMes, sAno;
+	sDia = (char*)this->dia;
+	sMes = (char*)this->mes;
+	sAno = (char*)this->ano;
+
+	return { sDia + '/' + sMes + '/' + sAno };		
+}
+
+void BomDia::setData(int novoDia, int novoMes, int novoAno) {
+	this->dia = novoDia;
+	this->mes = novoMes;
+	this->ano = novoAno;									
 }
