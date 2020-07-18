@@ -3,8 +3,10 @@
 #include <istream>
 #include <sstream>
 #include <fstream>
+#include "BomDia.h"
+#include <vector>
 
-void carregarArquivo() {
+void carregarArquivo(std::vector<BomDia> &vBD) {
 	std::ifstream fin("arquivoBomDias.txt");
 	if (!fin) {
 		std::cout << "ERRO ao abrir arquivo. Saindo do programa...\n";
@@ -13,7 +15,7 @@ void carregarArquivo() {
 
 	while (!fin.eof()) {
 		std::string linha;
-		std::getline(fin, linha, ',');
+		std::getline(fin, linha);
 		std::istringstream iss(linha);
 
 		std::string data;
@@ -25,6 +27,9 @@ void carregarArquivo() {
 		std::getline(issData, dia, '/');
 		std::getline(issData, mes, '/');
 		std::getline(issData, ano);
+		int iDia = std::stoi(dia);
+		int iMes = std::stoi(mes);
+		int iAno = std::stoi(ano);
 
 		std::string autor;
 		std::getline(iss, autor, ',');
@@ -32,19 +37,12 @@ void carregarArquivo() {
 		std::string mensagem;
 		std::getline(iss, mensagem);
 
-		
+		BomDia temp(iDia, iMes, iAno, autor, mensagem);
 
-
-
-		
-
-		
-
-
+		vBD.push_back(temp);
 	}
-
-	 
 }
+
 int salvarArquivo() {
 	std::ofstream fout	("arquivoBomDias.txt");
 	fout << "teste";

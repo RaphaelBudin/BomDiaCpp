@@ -7,8 +7,10 @@
 
 int main()
 {
-    std::vector<BomDia> vBD;
-    carregarArquivo();
+    std::vector<BomDia> vBD{};
+    carregarArquivo(vBD);
+    
+
     std::cout << "BOM DIA BB!\n";
     while (1) {
         switch (menuRetornaOpcao()) {
