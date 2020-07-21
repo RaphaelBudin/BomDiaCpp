@@ -22,4 +22,3 @@ public:
 	void setData(int novoDia, int novoMes, int novoAno);
 	
 };
-

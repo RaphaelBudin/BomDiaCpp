@@ -21,7 +21,7 @@ void carregarArquivo(std::vector<BomDia> &vBD) {
 		std::string data;
 		std::getline(iss, data, ',');
 		std::istringstream issData(data);
-		//Dia, mes e ano s„o tratados como string por conta do getline abaixo, pois n„o aceita (istringstream, int, char) apenas (istringstream, string, char)
+		//Dia, mes e ano s√£o tratados como string por conta do getline abaixo, pois n√£o aceita (istringstream, int, char) apenas (istringstream, string, char)
 		//Depois basta fazer o explicit casting e tudo resolvido
 		std::string dia, mes, ano;
 		std::getline(issData, dia, '/');

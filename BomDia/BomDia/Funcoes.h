@@ -10,5 +10,3 @@ int menuRetornaOpcao();
 void addBomDia();
 
 #endif // !FUNCOES_H
-
-
