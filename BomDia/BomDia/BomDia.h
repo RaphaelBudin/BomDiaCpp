@@ -13,7 +13,7 @@ private:
 	int ano;
 
 public:
-	BomDia(int dia, int mes, int ano, std::string nome, std::string mensagem);
+	BomDia(int dia, int mes, int ano, std::string autor, std::string mensagem);
 	std::string getAutor();
 	void setAutor(std::string novoAutor);
 	std::string getMensagem();
@@ -22,4 +22,3 @@ public:
 	void setData(int novoDia, int novoMes, int novoAno);
 	
 };
-
