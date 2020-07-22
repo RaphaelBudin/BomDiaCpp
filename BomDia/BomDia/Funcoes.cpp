@@ -81,9 +81,19 @@ void addBomDia() {
 
 }
 
-// void mostrarBomDias(BomDia const &vBD){
+void mostrarBomDias(std::vector<BomDia> const &vBD){
+	for (auto p : vBD){
+		std::cout << p.getData() << ", " << p.getAutor() << ", " <<p.getMensagem() <<"\n";
+	}
+}
 
-// }
+void pesquisarBomDia(std::vector<BomDia> const &vBD){
+
+}
+
+void deletarBomDia(std::vector<BomDia> &vBD){
+	
+}
 
 
 

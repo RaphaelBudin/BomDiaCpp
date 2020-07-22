@@ -16,11 +16,11 @@ int main()
 
         case 1: addBomDia();
             break;
-        case 2: //mostrarBomDias();
+        case 2: mostrarBomDias(vBD);
             break;
-        case 3: //pesquisarBomDia();
+        case 3: pesquisarBomDia(vBD);
             break;
-        case 4: //deletarBomDia();
+        case 4: deletarBomDia(vBD);
             break;
         case 8: salvarArquivo(vBD);
             break;
