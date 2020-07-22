@@ -5,6 +5,7 @@
 #include <fstream>
 #include "BomDia.h"
 #include <vector>
+#include <limits.h>
 
 void carregarArquivo(std::vector<BomDia> &vBD) {
 	std::ifstream fin("arquivoBomDias.txt");
@@ -28,24 +29,20 @@ void carregarArquivo(std::vector<BomDia> &vBD) {
 		std::getline(issData, mes, '/');
 		std::getline(issData, ano);
 
-		/*int iDia = std::stoi(dia, nullptr, 10);
-		int iMes = std::stoi(mes);
-		int iAno = std::stoi(ano);*/
-
 		std::string autor;
 		std::getline(iss, autor, ',');
 
 		std::string mensagem;
 		std::getline(iss, mensagem);
 
-		BomDia temp(std::stoi(dia, nullptr, 10), std::stoi(mes, nullptr, 10), std::stoi(ano, nullptr, 10), autor, mensagem);
+		BomDia temp(dia, mes, ano, autor, mensagem);
 
 		vBD.push_back(temp);
 	}
 	fin.close();
 }
 
-void salvarArquivo(std::vector<BomDia> & vBD) {
+void salvarArquivo(std::vector<BomDia> const &vBD) {
 	std::ofstream fout	("arquivoBomDias.txt");
 	for (auto p : vBD) {
 		int i = 1, tamanhovBD = vBD.size();
@@ -56,20 +53,23 @@ void salvarArquivo(std::vector<BomDia> & vBD) {
 		fout << '\n';
 		++i;
 	}
+	std::cout <<"\nArquivo Salvo!\n";
 }
 
 
 int menuRetornaOpcao() {
 	std::cout << "Menu: \n";
 	std::cout << "1. Adicionar bom dia\n";
-	std::cout << "2. Pesquisar bom dia\n";
-	std::cout << "3. Exibir bom dias\n";
+	std::cout << "2. Mostrar todas as mensagens\n";
+	std::cout << "3. Pesquisar Bom Dia\n";
+	std::cout << "4. Deletar Bom Dia\n";
 	std::cout << "8. Salvar\n";
+	std::cout << "9. Sair\n";
 
 	int opcao = -1;
 	do {
 		std::cin >> opcao;
-	} while (!(opcao > 0 && opcao < 9));
+	} while (!(opcao > 0 && opcao < 10));
 
 	return opcao;
 }
@@ -79,4 +79,19 @@ void addBomDia() {
 	std::string bomDia;
 	std::cin >> bomDia;
 
+}
+
+// void mostrarBomDias(BomDia const &vBD){
+
+// }
+
+
+
+void sair(std::vector<BomDia> const &vBD){
+	std::cout <<"Deseja salvar antes de sair? S/N: ";
+	std::cin.ignore();	//Limpa o buffer do cin, que está com sujeira de algum cin anterior
+	char resposta;
+	std::cin.get(resposta);
+	if (resposta == 'S' || resposta == 's')
+		salvarArquivo(vBD);
 }

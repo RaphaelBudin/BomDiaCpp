@@ -9,19 +9,29 @@ int main()
 {
     std::vector<BomDia> vBD{};
     carregarArquivo(vBD);
-    salvarArquivo(vBD);
-    
     std::cout << "BOM DIA BB!\n";
-    while (1) {
+    int on = true;
+    while (on) {
         switch (menuRetornaOpcao()) {
+
         case 1: addBomDia();
             break;
-        case 2: salvarArquivo(vBD);
+        case 2: //mostrarBomDias();
+            break;
+        case 3: //pesquisarBomDia();
+            break;
+        case 4: //deletarBomDia();
+            break;
+        case 8: salvarArquivo(vBD);
+            break;
+        case 9: sair(vBD);
+            on = false;
             break;
         default: 
             break;
         }
     }
+    std::cout <<"Saindo do programa... \n\n";
 
     //Carregar bom dia de todas as pessoas na memória
     //Menu Principal

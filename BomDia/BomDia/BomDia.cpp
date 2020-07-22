@@ -3,12 +3,13 @@
 #include <vector>
 #include "BomDia.h"
 
-BomDia::BomDia(int dia, int mes, int ano, std::string autor, std::string mensagem) {
-	this->autor = autor;
-	this->mensagem = mensagem;
-	this->dia = dia;
-	this->mes = mes;
-	this->ano = ano;
+//o "c" no nome das variáveis significa "construtor", para diferenciar do atributo final
+BomDia::BomDia(std::string cdia, std::string cmes, std::string cano, std::string cautor, std::string cmensagem) {
+	this->autor = cautor;
+	this->mensagem = cmensagem;
+	this->dia = cdia;
+	this->mes = cmes;
+	this->ano = cano;
 }
 
 
@@ -27,12 +28,7 @@ void BomDia::setMensagem(std::string novaMensagem) {
 
 
 std::string BomDia::getData() {
-	std::string sDia, sMes, sAno;
-	sDia = (char*)this->dia;
-	sMes = (char*)this->mes;
-	sAno = (char*)this->ano;
-
-	return { sDia + '/' + sMes + '/' + sAno };		
+	return { this->dia + '/' + this->mes + '/' + this->ano };		
 }
 
 void BomDia::setData(int novoDia, int novoMes, int novoAno) {
