@@ -22,6 +22,6 @@ public:
 	void setMensagem(std::string novaMensagem);
 	
 	std::string getData();
-	void setData(int novoDia, int novoMes, int novoAno);
+	bool setData(std::string novoDia, std::string novoMes, std::string novoAno);
 	
 };
