@@ -3,6 +3,14 @@
 #include <vector>
 #include "BomDia.h"
 
+BomDia::BomDia(){
+	this->autor = "";
+	this->mensagem = "";
+	this->dia = "";
+	this->mes = "";
+	this->ano = "";
+}
+
 //o "c" no nome das variáveis significa "construtor", para diferenciar do atributo final
 BomDia::BomDia(std::string cdia, std::string cmes, std::string cano, std::string cautor, std::string cmensagem) {
 	this->autor = cautor;

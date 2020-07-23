@@ -13,6 +13,7 @@ private:
 	std::string ano;
 
 public:
+	BomDia();
 	BomDia(std::string dia, std::string mes, std::string ano, std::string autor, std::string mensagem);
 
 	std::string getAutor();
