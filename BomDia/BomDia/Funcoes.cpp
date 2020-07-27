@@ -7,6 +7,11 @@
 #include <vector>
 #include <limits.h>
 
+//A diretiva de pré-processamento #define não tem escopo local definido por {}
+//Ela irá substituir toda ocorrência de texto a partir do local que ela foi declarado para baixo no código
+//Havia criado uma #define dentro void mostrarBomDia(), e quando tentei declarar uma variável auto p no bool pesquisarBomDia() ele deu erro
+
+
 void carregarArquivo(std::vector<BomDia> &vBD) {
 	std::ifstream fin("arquivoBomDias.txt");
 	if (!fin) {
@@ -107,20 +112,18 @@ void addBomDia(std::vector<BomDia> &vBD) {
 	vBD.push_back(temp);
 }
 
-void mostrarVetorBomDias(const std::vector<BomDia> &vBD){
+const void mostrarVetorBomDias(const std::vector<BomDia> &vBD){
 	for (auto p : vBD){
 		std::cout << p.getData() << ", " << p.getAutor() << ", " <<p.getMensagem() <<"\n";
 	}
 }
 
-void mostrarBomDia(std::vector<BomDia> &vBD, const int posicaoVetor){
-	#define p vBD.at(posicaoVetor)
-	std::cout << p.getData() << ", " <<p.getAutor() <<", " <<p.getMensagem() <<"\n";
+const void mostrarBomDia(const std::vector<BomDia> &vBD, const int posicaoVetor){
+	std::cout << vBD.at(posicaoVetor).getData() << ", " << vBD.at(posicaoVetor).getAutor() <<", " << vBD.at(posicaoVetor).getMensagem() <<"\n";
 }
 
-std::string retornarLinha(std::vector<BomDia> &vBD, const int posicaoVetor){
-	#define p vBD.at(posicaoVetor)
-	return {p.getData() + ", " + p.getAutor() + ", " + p.getMensagem()};
+const std::string retornarLinha(std::vector<BomDia> &vBD, const int posicaoVetor){
+	return { vBD.at(posicaoVetor).getData() + ", " + vBD.at(posicaoVetor).getAutor() + ", " + vBD.at(posicaoVetor).getMensagem()};
 }
 
 bool pesquisarBomDia(const std::vector<BomDia> &vBD){
@@ -130,16 +133,19 @@ bool pesquisarBomDia(const std::vector<BomDia> &vBD){
 				<<"3. Autor\n"
 				<<"---> :";
 
+	//Compilador não deixou inicializar variável abaxio dentro de dos 'case'
+	//Informa erro "Desvio de controle da inicialização de variável"
+	std::string termoPesquisar;
+
 	switch (std::cin.get())
 	{
 	case 1: 
 		std::cout <<"Insira o termo a ser pesquisado: ";
-		std::string termoPesquisar;
 		std::getline(std::cin, termoPesquisar);
 		for (auto p : vBD){
 			int i = 0;
 			if (p.getMensagem() == termoPesquisar){
-				mostrarBomDia(vBD, i);
+				mostrarBomDia(const_cast vBD, i);
 			}
 			++i;
 		}
@@ -151,21 +157,21 @@ bool pesquisarBomDia(const std::vector<BomDia> &vBD){
 	
 }
 
-bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string termoPesquisar){
-	return 0;
-}
-
-bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string dataPesquisar){
-	return 0;
-}
-
-bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string autorPesquisar){
-	return 0;
-}
-
-void deletarBomDia(std::vector<BomDia> &vBD){
-
-}
+//bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string termoPesquisar){
+//	return 0;
+//}
+//
+//bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string dataPesquisar){
+//	return 0;
+//}
+//
+//bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string autorPesquisar){
+//	return 0;
+//}
+//
+//void deletarBomDia(std::vector<BomDia> &vBD){
+//
+//}
 
 
 

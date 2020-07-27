@@ -16,7 +16,7 @@ int main()
 
         case 1: addBomDia();
             break;
-        case 2: mostrarBomDias(vBD);
+        case 2: mostrarVetorBomDias(vBD);
             break;
         case 3: pesquisarBomDia(vBD);
             break;

@@ -20,19 +20,19 @@ BomDia::BomDia(std::string cdia, std::string cmes, std::string cano, std::string
 	this->ano = cano;
 }
 
-std::string BomDia::getAutor() 									{
+const std::string BomDia::getAutor() 									{
 	return this->autor;											}
 
 void BomDia::setAutor(std::string novoAutor) 					{
 	this->autor = novoAutor;									}
 
-std::string BomDia::getMensagem() 								{
+const std::string BomDia::getMensagem() 								{
 	return this->mensagem;										}
 
 void BomDia::setMensagem(std::string novaMensagem) 				{
 	this->mensagem = novaMensagem;								}
 
-std::string BomDia::getData() 									{
+const std::string BomDia::getData() 									{
 	return { this->dia + '/' + this->mes + '/' + this->ano };	}
 
 
@@ -41,9 +41,12 @@ bool BomDia::setData(std::string nDia, std::string nMes, std::string nAno) {
 	//Já tinha feito a validação em formato de int
 	//Fica mais fácil fazer como int ao invés de string
 	//Manter dessa forma, a menos que os atributos dia,mes,ano voltem a serem int
-	int novoDia = std::stoi(nDia);
-	int novoMes = std::stoi(nMes);
-	int novoAno = std::stoi(nAno);
+	//
+	//Compilador acusava erro de conversão de 'int' para 'const_Elem' -> possível perda de dados
+	//
+	const int novoDia = std::stoi(nDia);
+	const int novoMes = std::stoi(nMes);
+	const int novoAno = std::stoi(nAno);
 
 	//Validar mês
 	if (novoMes < 1 || novoMes > 12){

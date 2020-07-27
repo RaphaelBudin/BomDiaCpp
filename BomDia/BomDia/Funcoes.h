@@ -10,14 +10,14 @@ int menuRetornaOpcao();
 
 void addBomDia();
 
-void mostrarVetorBomDias(const std::vector<BomDia> &vBD);
-void mostrarBomDia(const std::vector<BomDia> &vBD);
-std::string retornarBomDia(std::vector<BomDia> &vBD, const int posicaoVetor);
+const void mostrarVetorBomDias(const std::vector<BomDia> &vBD);
+const void mostrarBomDia(const std::vector<BomDia> &vBD);
+const std::string retornarBomDia(std::vector<BomDia> &vBD, const int posicaoVetor);
 
 bool pesquisarBomDia(const std::vector<BomDia> &vBD);
 bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string termoPesquisar);
-bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string dataPesquisar);
-bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string autorPesquisar);
+//const bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string dataPesquisar);
+//const bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string autorPesquisar);
 
 void deletarBomDia(std::vector<BomDia> &vBD);
 
