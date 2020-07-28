@@ -13,14 +13,15 @@ int main()
     int on = true;
     while (on) {
         switch (menuRetornaOpcao()) {
-
-        case 1: addBomDia();
+        case 0: clear_screen();
+            break;
+        case 1: addBomDia(vBD);
             break;
         case 2: mostrarVetorBomDias(vBD);
             break;
         case 3: pesquisarBomDia(vBD);
             break;
-        case 4: deletarBomDia(vBD);
+        case 4: //deletarBomDia(vBD);
             break;
         case 8: salvarArquivo(vBD);
             break;
@@ -30,6 +31,7 @@ int main()
         default: 
             break;
         }
+        std::cout << "\n";
     }
     std::cout <<"Saindo do programa... \n\n";
 

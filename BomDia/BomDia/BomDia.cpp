@@ -20,20 +20,20 @@ BomDia::BomDia(std::string cdia, std::string cmes, std::string cano, std::string
 	this->ano = cano;
 }
 
-const std::string BomDia::getAutor() 									{
-	return this->autor;											}
+const std::string BomDia::getAutor() 														{
+	return this->autor;																		}
 
-void BomDia::setAutor(std::string novoAutor) 					{
-	this->autor = novoAutor;									}
+void BomDia::setAutor(std::string novoAutor) 												{
+	this->autor = novoAutor;																}
 
-const std::string BomDia::getMensagem() 								{
-	return this->mensagem;										}
+const std::string BomDia::getMensagem() 													{
+	return this->mensagem;																	}
 
-void BomDia::setMensagem(std::string novaMensagem) 				{
-	this->mensagem = novaMensagem;								}
+void BomDia::setMensagem(std::string novaMensagem) 											{
+	this->mensagem = novaMensagem;															}
 
-const std::string BomDia::getData() 									{
-	return { this->dia + '/' + this->mes + '/' + this->ano };	}
+const std::string BomDia::getData() 														{
+	return { this-> dia + '/' + this->mes + '/' + this->ano };								}
 
 
 
@@ -81,9 +81,10 @@ bool BomDia::setData(std::string nDia, std::string nMes, std::string nAno) {
 
 	//Tudo certo
 	else {
-		this->dia = novoDia;
-		this->mes = novoMes;
-		this->ano = novoAno;		
+		//Otimizar o código posteriormente fazendo dia, mes e ano serem short int ao invés de strings
+		this->dia = std::to_string(novoDia);
+		this->mes = std::to_string(novoMes);
+		this->ano = std::to_string(novoAno);		
 	}
 	return 0;
 }
