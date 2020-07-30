@@ -2,21 +2,25 @@
   BomDia.vcxproj -> C:\Users\Raphael\Documents\GitHub\BomDiaCpp\BomDia\Debug\BomDia.exe
 
 Resumo do Desempenho do Projeto:
-     8495 ms C:\Users\Raphael\Documents\GitHub\BomDiaCpp\BomDia\BomDia\BomDia.vcxproj   1 chamadas
-               8495 ms Build                                      1 chamadas
+     2266 ms C:\Users\Raphael\Documents\GitHub\BomDiaCpp\BomDia\BomDia\BomDia.vcxproj   1 chamadas
+               2266 ms Build                                      1 chamadas
 
 Resumo do Desempenho do Destino:
         0 ms _ResourceCompile                           1 chamadas
+        0 ms _ALink                                     1 chamadas
         0 ms _Link                                      1 chamadas
         0 ms AfterLink                                  1 chamadas
-        0 ms ComputeLinkImportLibraryOutputsForClean    1 chamadas
-        0 ms DoLinkOutputFilesMatch                     1 chamadas
+        0 ms ComputeLinkSwitches                        1 chamadas
+        0 ms PreLinkEvent                               1 chamadas
         0 ms PrepareResourceNames                       1 chamadas
         0 ms CreateCustomManifestResourceNames          1 chamadas
+        0 ms ComputeManifestInputsTargets               1 chamadas
         0 ms ComputeLinkInputsFromProject               1 chamadas
+        0 ms ComputeCLGeneratedLinkInputs               1 chamadas
+        0 ms ComputeCLOutputs                           1 chamadas
         0 ms ComputeManifestGeneratedLinkerInputs       1 chamadas
-        0 ms _ALink                                     1 chamadas
         0 ms ComputeRCGeneratedLinkInputs               1 chamadas
+        0 ms ComputeRCOutputs                           1 chamadas
         0 ms BeforeLink                                 1 chamadas
         0 ms BuildLinkTraverse                          1 chamadas
         0 ms BuildCompile                               1 chamadas
@@ -24,21 +28,22 @@ Resumo do Desempenho do Destino:
         0 ms AfterBuildCompileEvent                     1 chamadas
         0 ms AfterResourceCompile                       1 chamadas
         0 ms BeforeResourceCompile                      1 chamadas
-        0 ms _ClCompile                                 1 chamadas
-        0 ms ComputeRCOutputs                           1 chamadas
-        0 ms AfterClCompile                             1 chamadas
         0 ms _Manifest                                  1 chamadas
-        0 ms MakeDirsForXdcMake                         1 chamadas
+        0 ms _ClCompile                                 1 chamadas
+        0 ms RegisterOutput                             1 chamadas
+        0 ms ComputeCLCompileGeneratedXDCFiles          1 chamadas
+        0 ms IncrementalClean                           1 chamadas
         0 ms AfterBuild                                 1 chamadas
         0 ms BuildLink                                  1 chamadas
         0 ms _BuildLinkAction                           1 chamadas
         0 ms PostBuildEvent                             1 chamadas
         0 ms PrepareForRun                              1 chamadas
-        0 ms CopyFilesToOutputDirectory                 1 chamadas
+        0 ms _CheckForCompileOutputs                    1 chamadas
         0 ms _CopySourceItemsToOutputDirectory          1 chamadas
+        0 ms _GetCopyToOutputDirectoryItemsFromThisProject   1 chamadas
         0 ms _GetCopyToOutputDirectoryItemsFromTransitiveProjectReferences   1 chamadas
-        0 ms ResolvedXDCMake                            1 chamadas
         0 ms GetCopyToOutputDirectoryXamlAppDefs        1 chamadas
+        0 ms _PopulateCommonStateForGetCopyToOutputDirectoryItems   1 chamadas
         0 ms _Deploy                                    1 chamadas
         0 ms _Appverifier                               1 chamadas
         0 ms CreateSatelliteAssemblies                  1 chamadas
@@ -47,95 +52,90 @@ Resumo do Desempenho do Destino:
         0 ms MakeDirsForBscMake                         1 chamadas
         0 ms ComputeCLCompileGeneratedSbrFiles          1 chamadas
         0 ms _XdcMake                                   1 chamadas
-        0 ms _PopulateCommonStateForGetCopyToOutputDirectoryItems   1 chamadas
-        0 ms SelectClCompile                            1 chamadas
+        0 ms MakeDirsForXdcMake                         1 chamadas
+        0 ms ResolvedXDCMake                            1 chamadas
+        0 ms AfterClCompile                             1 chamadas
         0 ms Build                                      1 chamadas
-        0 ms GetReferenceAssemblyPaths                  1 chamadas
-        0 ms ResolveSDKReferences                       1 chamadas
-        0 ms ExpandSDKReferences                        1 chamadas
-        0 ms AfterResolveReferences                     1 chamadas
-        0 ms ResolveReferences                          1 chamadas
-        0 ms GetResolvedWinMD                           1 chamadas
-        0 ms BuildGenerateSourcesTraverse               1 chamadas
+        0 ms SelectClCompile                            1 chamadas
+        0 ms PreBuildEvent                              1 chamadas
         0 ms BeforeBuildGenerateSources                 1 chamadas
-        0 ms FindReferenceAssembliesForReferences       1 chamadas
-        0 ms _SelectedFiles                             1 chamadas
-        0 ms SelectCustomBuild                          1 chamadas
-        0 ms ComputeCustomBuildOutput                   1 chamadas
-        0 ms _Xsd                                       1 chamadas
-        0 ms ComputeMIDLGeneratedCompileInputs          1 chamadas
-        0 ms AfterMidl                                  1 chamadas
+        0 ms BuildGenerateSourcesTraverse               1 chamadas
+        0 ms ResolveReferences                          1 chamadas
+        0 ms AfterResolveReferences                     1 chamadas
+        0 ms ResolveAssemblyReferences                  1 chamadas
+        0 ms ExpandSDKReferences                        1 chamadas
+        0 ms ResolveSDKReferences                       1 chamadas
         0 ms SetCABuildNativeEnvironmentVariables       1 chamadas
-        0 ms AfterBuildGenerateSources                  1 chamadas
-        0 ms BeforeResolveReferences                    1 chamadas
-        0 ms AfterBuildGenerateSourcesEvent             1 chamadas
-        0 ms BeforeClCompile                            1 chamadas
-        0 ms BuildCompileTraverse                       1 chamadas
-        0 ms BuildGenerateSources                       1 chamadas
+        0 ms GetResolvedWinMD                           1 chamadas
+        0 ms GetReferenceAssemblyPaths                  1 chamadas
+        0 ms GetFrameworkPaths                          1 chamadas
         0 ms PrepareProjectReferences                   1 chamadas
+        0 ms _SplitProjectReferencesByFileExistence     1 chamadas
+        0 ms AssignProjectConfiguration                 1 chamadas
+        0 ms BeforeResolveReferences                    1 chamadas
+        0 ms _PrepareForReferenceResolution             1 chamadas
+        0 ms _PrepareForBuild                           1 chamadas
+        0 ms SetTelemetryEnvironmentVariables           1 chamadas
+        0 ms _SelectedFiles                             1 chamadas
+        0 ms CopyFileToFolders                          1 chamadas
+        0 ms SelectCustomBuild                          1 chamadas
+        0 ms BuildCompileTraverse                       1 chamadas
+        0 ms ComputeCLInputPDBName                      1 chamadas
+        0 ms ComputeReferenceCLInput                    1 chamadas
+        0 ms WarnCompileDuplicatedFilename              1 chamadas
+        0 ms _Xsd                                       1 chamadas
+        0 ms BuildGenerateSources                       1 chamadas
         0 ms _BuildGenerateSourcesAction                1 chamadas
+        0 ms AfterBuildGenerateSourcesEvent             1 chamadas
+        0 ms AfterBuildGenerateSources                  1 chamadas
+        0 ms AfterMidl                                  1 chamadas
         0 ms _Midl                                      1 chamadas
-        1 ms ResolveAssemblyReferences                  1 chamadas
+        0 ms MakeDirsForCl                              1 chamadas
+        0 ms MakeDirsForMidl                            1 chamadas
+        0 ms ComputeMIDLGeneratedCompileInputs          1 chamadas
+        0 ms FindReferenceAssembliesForReferences       1 chamadas
         1 ms SetBuildDefaultEnvironmentVariables        1 chamadas
-        1 ms ComputeCLGeneratedLinkInputs               1 chamadas
-        1 ms PreLinkEvent                               1 chamadas
-        1 ms ComputeCLInputPDBName                      1 chamadas
-        1 ms CopyFileToFolders                          1 chamadas
+        1 ms SplitResourcesByCulture                    1 chamadas
+        1 ms ComputeCustomBuildOutput                   1 chamadas
+        1 ms DoLinkOutputFilesMatch                     1 chamadas
         1 ms MakeDirsForResourceCompile                 1 chamadas
-        1 ms ComputeLegacyManifestEmbedding             1 chamadas
-        1 ms ComputeReferenceCLInput                    1 chamadas
-        1 ms PreBuildEvent                              1 chamadas
-        1 ms _CheckForCompileOutputs                    1 chamadas
+        1 ms FixupCLCompileOptions                      1 chamadas
+        1 ms AssignTargetPaths                          1 chamadas
+        1 ms ComputeLinkImportLibraryOutputsForClean    1 chamadas
+        1 ms ResolveProjectReferences                   1 chamadas
+        1 ms CustomBuild                                1 chamadas
+        1 ms BeforeClCompile                            1 chamadas
+        1 ms CopyFilesToOutputDirectory                 1 chamadas
+        1 ms _CleanGetCurrentAndPriorFileWrites         1 chamadas
+        1 ms MakeDirsForLink                            1 chamadas
         1 ms _CheckWindowsSDKInstalled                  1 chamadas
-        1 ms _GetCopyToOutputDirectoryItemsFromThisProject   1 chamadas
-        1 ms RegisterOutput                             1 chamadas
-        1 ms ComputeManifestInputsTargets               1 chamadas
-        2 ms MakeDirsForLink                            1 chamadas
-        2 ms AssignTargetPaths                          1 chamadas
-        2 ms IncrementalClean                           1 chamadas
-        2 ms ComputeCLOutputs                           1 chamadas
-        2 ms GetFrameworkPaths                          1 chamadas
-        3 ms ComputeCLCompileGeneratedXDCFiles          1 chamadas
-        3 ms SplitResourcesByCulture                    1 chamadas
-        3 ms ComputeLinkSwitches                        1 chamadas
-        4 ms MakeDirsForMidl                            1 chamadas
-        4 ms FinalizeBuildStatus                        1 chamadas
-        5 ms _SplitProjectReferencesByFileExistence     1 chamadas
-        6 ms _PrepareForReferenceResolution             1 chamadas
-        7 ms FixupCLCompileOptions                      1 chamadas
-        7 ms MakeDirsForCl                              1 chamadas
-        8 ms _GetProjectReferenceTargetFrameworkProperties   1 chamadas
-        9 ms WarnCompileDuplicatedFilename              1 chamadas
-       12 ms _CleanGetCurrentAndPriorFileWrites         1 chamadas
-       13 ms CustomBuild                                1 chamadas
-       15 ms SetTelemetryEnvironmentVariables           1 chamadas
-       16 ms GetCopyToOutputDirectoryItems              1 chamadas
-       16 ms PrepareForBuild                            1 chamadas
-       17 ms ResolveProjectReferences                   1 chamadas
-       18 ms AssignProjectConfiguration                 1 chamadas
-       19 ms InitializeBuildStatus                      1 chamadas
-       22 ms _PrepareForBuild                           1 chamadas
-       76 ms _CheckForInvalidConfigurationAndPlatform   1 chamadas
-     1210 ms Link                                       1 chamadas
-     6942 ms ClCompile                                  1 chamadas
+        2 ms GetCopyToOutputDirectoryItems              1 chamadas
+        2 ms _GetProjectReferenceTargetFrameworkProperties   1 chamadas
+        2 ms FinalizeBuildStatus                        1 chamadas
+        3 ms _CheckForInvalidConfigurationAndPlatform   1 chamadas
+        3 ms InitializeBuildStatus                      1 chamadas
+        5 ms ComputeLegacyManifestEmbedding             1 chamadas
+        8 ms PrepareForBuild                            1 chamadas
+      526 ms Link                                       1 chamadas
+     1692 ms ClCompile                                  1 chamadas
 
 Resumo do Desempenho da Tarefa:
-        1 ms CheckVCToolsetVersion                      1 chamadas
-        2 ms AssignTargetPath                           7 chamadas
-        2 ms ConvertToAbsolutePath                      1 chamadas
-        2 ms RemoveDuplicates                           2 chamadas
-        3 ms WriteLinesToFile                           1 chamadas
-        3 ms AssignCulture                              1 chamadas
-        4 ms Delete                                     2 chamadas
-        5 ms MSBuild                                    1 chamadas
-        6 ms MakeDir                                    9 chamadas
-        7 ms ReadLinesFromFile                          2 chamadas
-        8 ms SetEnv                                     8 chamadas
-        8 ms FindUnderPath                              5 chamadas
-        9 ms Touch                                      2 chamadas
-       14 ms GetOutOfDateItems                          3 chamadas
-       15 ms CallTarget                                 2 chamadas
-       16 ms AssignProjectConfiguration                 1 chamadas
-       28 ms Message                                    3 chamadas
-     1207 ms Link                                       1 chamadas
-     6940 ms CL                                         1 chamadas
+        0 ms Message                                    3 chamadas
+        0 ms SetEnv                                     8 chamadas
+        0 ms AssignProjectConfiguration                 1 chamadas
+        0 ms MSBuild                                    1 chamadas
+        0 ms ConvertToAbsolutePath                      1 chamadas
+        0 ms CheckVCToolsetVersion                      1 chamadas
+        0 ms ReadLinesFromFile                          2 chamadas
+        0 ms WriteLinesToFile                           1 chamadas
+        0 ms RemoveDuplicates                           2 chamadas
+        1 ms AssignCulture                              1 chamadas
+        1 ms Touch                                      2 chamadas
+        1 ms CallTarget                                 2 chamadas
+        1 ms AssignTargetPath                           7 chamadas
+        1 ms Delete                                     2 chamadas
+        1 ms GetOutOfDateItems                          3 chamadas
+        1 ms FindUnderPath                              5 chamadas
+        1 ms MakeDir                                    9 chamadas
+      524 ms Link                                       1 chamadas
+     1690 ms CL                                         1 chamadas

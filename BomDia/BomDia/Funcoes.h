@@ -5,6 +5,8 @@
 #include "BomDia.h"
 
 void clear_screen(void);
+void converterMaiuscula(std::string& texto);
+void converterMaiuscula(char& letra);
 
 void carregarArquivo(std::vector<BomDia> &vBD);
 void salvarArquivo(const std::vector<BomDia> &vBD);

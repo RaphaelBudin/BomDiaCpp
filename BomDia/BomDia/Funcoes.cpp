@@ -83,6 +83,17 @@ void clear_screen(void) {
 //}
 
 
+void converterMaiuscula(std::string& texto) {
+	for (unsigned int i = 0; i < texto.size(); ++i)
+		if (texto.at(i) >= 'a' && texto.at(i) <= 'z')
+			texto.at(i) = (texto.at(i) - ' ');
+}
+
+void converterMaiuscula(char& letra) {
+	if (letra >= 'a' && letra <= 'z')	
+		letra = (letra - ' ');
+}
+
 
 void carregarArquivo(std::vector<BomDia> &vBD) {
 	std::ifstream fin("arquivoBomDias.txt");
@@ -98,6 +109,8 @@ void carregarArquivo(std::vector<BomDia> &vBD) {
 
 		std::string data;
 		std::getline(iss, data, ',');
+		//Filtra inserções vazias no vetor
+		if (data.substr(0, 2) == "//")		continue;
 		std::istringstream issData(data);
 		//Dia, mes e ano são tratados como string por conta do getline abaixo, pois não aceita (istringstream, int, char) apenas (istringstream, string, char)
 		//Depois basta fazer o explicit casting e tudo resolvido
@@ -112,6 +125,9 @@ void carregarArquivo(std::vector<BomDia> &vBD) {
 		std::string mensagem;
 		std::getline(iss, mensagem);
 
+		converterMaiuscula(autor);
+		converterMaiuscula(mensagem);
+
 		BomDia temp(dia, mes, ano, autor, mensagem);
 
 		vBD.push_back(temp);
@@ -122,15 +138,21 @@ void carregarArquivo(std::vector<BomDia> &vBD) {
 void salvarArquivo(const std::vector<BomDia> &vBD) {
 	std::ofstream fout	("arquivoBomDias.txt");
 	for (auto p : vBD) {
+		//Ignora Bom Dias vazios
+		if (p.getData().substr(0, 2) == "//")
+			continue;
 		int i = 1, tamanhovBD = vBD.size();
 		fout << p.getData() + ',' + p.getAutor() + ',' + p.getMensagem();
 
 		//A adição de uma linha vazia causa exibição incorreta de ' // ,  , ' como último registro de bom dia 
 		//Durante os testes fout.close() não impediu que novas adições fossem feitas no arquivo
 		//Portanto é necessário manter uma estrutura de controle para impedir de adicionar '\n' depois do último registro
-		//Dá menos trabalho de manter fazer o registro salvar corretamente do que verificar se a linha está vazia
-		if ( i ==  tamanhovBD)
+		//Dá menos trabalho de manter fazer o registro salvar corretamente do que verificar se a linha está vazia (foi implementado mesmo assim)
+		
+		if (i == tamanhovBD) {
 			fout.close();
+			break;
+		}
 		else fout << '\n';
 		++i;
 	}
@@ -271,18 +293,9 @@ bool pesquisarBomDia(std::vector<BomDia> &vBD){
 		std::cin.ignore();
 		std::cout <<"Insira o termo a ser pesquisado: ";
 		std::getline(std::cin, dados);
-		for (auto p : vBD){
-
-			//size_t representa um tamanho em bytes ou algum índice, ao invés de apenas outro inteiro qualquer
-			//size_t deve ser para especificar o tamanho ou índice de algo
-			//size_t é o resultado do operador sizeof
-			//size_t ajuda a portabilidade do código
-			//Função find retorna um size_t com a posição da substring pesquisada
+		converterMaiuscula(dados);
+		for (auto p : vBD){	
 			std::size_t temp = p.getMensagem().find(dados);	
-			//npos é um atributo de strings utilizado em conjunto com size_t
-			//Seu valor é -1, sendo o maior valor possível para um unsigned size_t
-			//Isso significa que o npos representa o final da string, parecido com o 'vector'.end()
-			//Logo, quando algum método retorna npos, significa que cheguou no fim da string sem correspondência
 			if (temp!=std::string::npos){
 				std::cout << "\n";
 				mostrarBomDia(vBD, i);
@@ -298,25 +311,31 @@ bool pesquisarBomDia(std::vector<BomDia> &vBD){
 		std::cout << "Insira a data a ser pesquisada: ";
 		std::getline(std::cin, dados);
 		for (auto p : vBD) {
-			if (p.getData() == dados) {
+			std::size_t temp = p.getData().find(dados);
+			if (temp != std::string::npos) {
 				mostrarBomDia(vBD, i);
 				++achados;
 			}
 			++i;
 		}
+		break;
 
 	case 3:
 		i = 0;
 		std::cin.ignore();
 		std::cout << "Insira o autor(a) a ser pesquisado(a): ";
 		std::getline(std::cin, dados);
+		converterMaiuscula(dados);
 		for (auto p : vBD) {
-			if (p.getAutor() == dados) {
+			std::size_t temp = p.getAutor().find(dados);
+			if (temp != std::string::npos) {
 				mostrarBomDia(vBD, i);
 				++achados;
 			}
 			++i;
+			
 		}
+		break;
 	
 	default:
 		std::cout << "Opcao inserida nao e valida.\nEncerrando funcao...\n";
