@@ -1,35 +1,29 @@
 #include <iostream>
 #include "Funcoes.h"
 #include "BomDia.h"
+#include <locale.h>  
 //montar e criar arquvios dos bom dias
 
 //não usar namespace global. Evitar usar ao todo. No máximo usar dentro de um escopo definido
 
 int main()
 {
+    setlocale(LC_ALL,"");
     std::vector<BomDia> vBD{};
     carregarArquivo(vBD);
     std::cout << "BOM DIA BB!\n";
     int on = true;
     while (on) {
         switch (menuRetornaOpcao()) {
-        case 0: clear_screen();
-            break;
-        case 1: addBomDia(vBD);
-            break;
-        case 2: mostrarVetorBomDias(vBD);
-            break;
-        case 3: pesquisarBomDia(vBD);
-            break;
-        case 4: //deletarBomDia(vBD);
-            break;
-        case 8: salvarArquivo(vBD);
-            break;
-        case 9: sair(vBD);
-            on = false;
-            break;
-        default: 
-            break;
+        case 0: clear_screen();            break;
+        case 1: addBomDia(vBD);            break;
+        case 2: mostrarVetorBomDias(vBD);  break;
+        case 3: pesquisarBomDia(vBD);      break;
+        case 4: deletarBomDia(vBD);        break;
+        case 5: teste(vBD);                break;
+        case 8: salvarArquivo(vBD);        break;
+        case 9: sair(vBD);   on = false;   break;
+        default:                           break;
         }
         std::cout << "\n";
     }

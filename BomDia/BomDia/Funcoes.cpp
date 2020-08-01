@@ -6,7 +6,10 @@
 #include "BomDia.h"
 #include <vector>
 #include <limits.h>
-#include <windows.h>
+#if __WIN32
+	#include <windows.h>
+#endif
+
 
 //A diretiva de pré-processamento #define não tem escopo local definido por {}
 //Ela irá substituir toda ocorrência de texto a partir do local que ela foi declarado para baixo no código
@@ -14,73 +17,8 @@
 
 //Função perigosa, pelo uso de system
 void clear_screen(void) {
-// Todas as formas listadas nesta função funcionaram no WINDOWS
-
-//#ifdef _WIN32
-//#define CLEAR "cls"
-//#else
-//#define CLEAR "clear"
-//#endif // _WIN32
-//	std::system(CLEAR);
-
 	std::system("cls || clear");
 }
-
-
-
-//
-//			Função segura para limpar a tela
-//
-//#include <windows.h>
-//void cls(HANDLE hConsole)
-//{
-//	COORD coordScreen = { 0, 0 };    // home for the cursor 
-//	DWORD cCharsWritten;
-//	CONSOLE_SCREEN_BUFFER_INFO csbi;
-//	DWORD dwConSize;
-//
-//	// Get the number of character cells in the current buffer. 
-//
-//	if (!GetConsoleScreenBufferInfo(hConsole, &csbi))
-//	{
-//		return;
-//	}
-//
-//	dwConSize = csbi.dwSize.X * csbi.dwSize.Y;
-//
-//	// Fill the entire screen with blanks.
-//
-//	if (!FillConsoleOutputCharacter(hConsole,        // Handle to console screen buffer 
-//		(TCHAR)' ',     // Character to write to the buffer
-//		dwConSize,       // Number of cells to write 
-//		coordScreen,     // Coordinates of first cell 
-//		&cCharsWritten))// Receive number of characters written
-//	{
-//		return;
-//	}
-//
-//	// Get the current text attribute.
-//
-//	if (!GetConsoleScreenBufferInfo(hConsole, &csbi))
-//	{
-//		return;
-//	}
-//
-//	// Set the buffer's attributes accordingly.
-//
-//	if (!FillConsoleOutputAttribute(hConsole,         // Handle to console screen buffer 
-//		csbi.wAttributes, // Character attributes to use
-//		dwConSize,        // Number of cells to set attribute 
-//		coordScreen,      // Coordinates of first cell 
-//		&cCharsWritten)) // Receive number of characters written
-//	{
-//		return;
-//	}
-//
-//	// Put the cursor at its home coordinates.
-//
-//	SetConsoleCursorPosition(hConsole, coordScreen);
-//}
 
 
 void converterMaiuscula(std::string& texto) {
@@ -215,17 +153,18 @@ void addBomDia(std::vector<BomDia> &vBD) {
 }
 
 const void mostrarVetorBomDias(const std::vector<BomDia> &vBD){
+	int i = 0;
 	for (auto p : vBD){
 		if (p.getData().substr(0, 2) == "//")
 			continue;
 		else
-			std::cout << p.getData() << ", " << p.getAutor() << ", " <<p.getMensagem() <<"\n";
+			std::cout <<"Numero : " <<i++ <<" - " <<p.getData() << ", " << p.getAutor() << ", " <<p.getMensagem() <<"\n";
 	}
 }
 
 //Implementar forma de usar o vBD como 'const', como desafio de otimização do programa
 const void mostrarBomDia(std::vector<BomDia> &vBD, const int posicaoVetor) {
-	std::cout << vBD.at(posicaoVetor).getData() << ", " << vBD.at(posicaoVetor).getAutor() <<", " << vBD.at(posicaoVetor).getMensagem() <<"\n";
+	std::cout <<"Posicao no Vetor: " <<posicaoVetor <<" - " <<vBD.at(posicaoVetor).getData() << ", " << vBD.at(posicaoVetor).getAutor() <<", " << vBD.at(posicaoVetor).getMensagem() <<"\n";
 }
 
 const std::string retornarBomDia(std::vector<BomDia>& vBD, const int posicaoVetor) {
@@ -239,11 +178,13 @@ const std::string retornarLinha(std::vector<BomDia> &vBD, const int posicaoVetor
 
 int acharPosicao(std::vector<BomDia>& vBD, short int opcao, std::string dados) {
 	int i = 0;
+	converterMaiuscula(dados);
 	switch (opcao)
 	{
 	case 1: //Por Texto 
 		for (auto p : vBD) {
-			if (p.getMensagem() == dados)
+			std::size_t temp = p.getMensagem().find(dados);
+			if (temp != std::string::npos)
 				return i;
 			++i;
 		}
@@ -251,7 +192,8 @@ int acharPosicao(std::vector<BomDia>& vBD, short int opcao, std::string dados) {
 
 	case 2:	//Por Data
 		for (auto p : vBD) {
-			if (p.getData() == dados)
+			std::size_t temp = p.getData().find(dados);
+			if (temp != std::string::npos)
 				return i;
 			++i;
 		}
@@ -259,15 +201,14 @@ int acharPosicao(std::vector<BomDia>& vBD, short int opcao, std::string dados) {
 
 	case 3:	//Por autor
 		for (auto p : vBD) {
-			if (p.getAutor() == dados)
+			std::size_t temp = p.getAutor().find(dados);
+			if (temp != std::string::npos)
 				return i;
 			++i;
 		}
 		break;
-
 	default:	break;
 	}
-
 	return -1;
 }
 
@@ -299,7 +240,7 @@ bool pesquisarBomDia(std::vector<BomDia> &vBD){
 			if (temp!=std::string::npos){
 				std::cout << "\n";
 				mostrarBomDia(vBD, i);
-				++achados;
+				achados = true;
 			}
 			++i;
 		}
@@ -314,7 +255,7 @@ bool pesquisarBomDia(std::vector<BomDia> &vBD){
 			std::size_t temp = p.getData().find(dados);
 			if (temp != std::string::npos) {
 				mostrarBomDia(vBD, i);
-				++achados;
+				achados = true;
 			}
 			++i;
 		}
@@ -330,18 +271,15 @@ bool pesquisarBomDia(std::vector<BomDia> &vBD){
 			std::size_t temp = p.getAutor().find(dados);
 			if (temp != std::string::npos) {
 				mostrarBomDia(vBD, i);
-				++achados;
+				achados = true;
 			}
 			++i;
-			
 		}
 		break;
-	
 	default:
 		std::cout << "Opcao inserida nao e valida.\nEncerrando funcao...\n";
 		break;
 	}
-	
 	if (achados == 0) {
 		std::cout << "Nao foi encontrado nada correspondente no vetor... Voce digitou corretamente?\n";
 		return false;
@@ -349,21 +287,26 @@ bool pesquisarBomDia(std::vector<BomDia> &vBD){
 	return true;	
 }
 
-//bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string termoPesquisar){
-//	return 0;
-//}
-//
-//bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string dataPesquisar){
-//	return 0;
-//}
-//
-//bool pesquisarBomDia(const std::vector<BomDia> &vBD, std::string autorPesquisar){
-//	return 0;
-//}
-//
-//void deletarBomDia(std::vector<BomDia> &vBD){
-//
-//}
+bool deletarBomDia(std::vector<BomDia> &vBD){
+	std::cout <<"Selecione o numero do registro a ser deletado: \n";
+	mostrarVetorBomDias(vBD);
+	unsigned int numero = -1;
+	std::cin >> numero;
+	vBD.erase(vBD.begin()+numero);
+	std::cout <<"Registro deletado com sucesso!\n";
+	return true;
+}
+
+//Passar índice para deletar automaticamente
+bool deletarBomDia(std::vector<BomDia> &vBD, int posicao){
+	if (posicao < vBD.size() || posicao >= vBD.size() )	{
+		std::cout <<"Valor invalido\n";
+		return false;
+	}	
+	vBD.erase(vBD.begin()+posicao);
+	std::cout <<"Registro deletado\n";
+	return true;
+}
 
 
 

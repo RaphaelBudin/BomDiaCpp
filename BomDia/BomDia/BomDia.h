@@ -1,4 +1,6 @@
-#pragma once
+#ifndef BOMDIA
+#define BOMDIA
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -26,3 +28,6 @@ public:
 	bool setData(std::string novoDia, std::string novoMes, std::string novoAno);
 	
 };
+
+
+#endif

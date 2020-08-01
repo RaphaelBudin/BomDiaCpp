@@ -20,8 +20,10 @@ const std::string retornarBomDia(std::vector<BomDia> &vBD, const int posicaoVeto
 
 bool pesquisarBomDia(std::vector<BomDia> &vBD);
 
-//void deletarBomDia(std::vector<BomDia> &vBD);
+bool deletarBomDia(std::vector<BomDia> &vBD, int posicao);
+bool deletarBomDia(std::vector<BomDia> &vBD);
 
+void teste(std::vector<BomDia> &vBD);
 
 void sair(const std::vector<BomDia> &vBD);
 
