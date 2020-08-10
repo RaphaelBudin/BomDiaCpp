@@ -4,13 +4,15 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "g++ - Criar e depurar o arquivo ativo",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            //"program": "${fileDirname}/${fileBasenameNoExtension}",   //Linha original
+            "program" : "${workspaceRoot}/BomDia/BomDia/a.out",                       //Linha modificada
             "args": [],
-            "stopAtEntry": false,
+            "stopAtEntry": true,
             "cwd": "${workspaceFolder}/BomDia/",
             "environment": [],
             "externalConsole": false,

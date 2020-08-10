@@ -10,34 +10,22 @@ int main()
 {
     setlocale(LC_ALL,"");
     std::vector<BomDia> vBD{};
-    carregarArquivo(vBD);
+    loadArchive(vBD);
     std::cout << "BOM DIA BB!\n";
     int on = true;
     while (on) {
-        switch (menuRetornaOpcao()) {
+        switch (menuReturnOption()) {
         case 0: clear_screen();            break;
         case 1: addBomDia(vBD);            break;
-        case 2: mostrarVetorBomDias(vBD);  break;
-        case 3: pesquisarBomDia(vBD);      break;
-        case 4: deletarBomDia(vBD);        break;
-        case 5: teste(vBD);                break;
-        case 8: salvarArquivo(vBD);        break;
-        case 9: sair(vBD);   on = false;   break;
+        case 2: showVectorBomDias(vBD);  break;
+        case 3: searchBomDia(vBD);      break;
+        case 4: deleteBomDia(vBD);        break;
+        //case 5: teste(vBD);                break;
+        case 8: saveArchive(vBD);        break;
+        case 9: exit(vBD);   on = false;   break;
         default:                           break;
         }
         std::cout << "\n";
     }
     std::cout <<"Saindo do programa... \n\n";
-
-    //Carregar bom dia de todas as pessoas na memória
-    //Menu Principal
-        //Selecionar opção
-        //Adicionar Bom Dia
-        //Adicionar Pessoa
-        //Mostrar Todos os bom dias por pessoa
-        //Mostrar Todos os bom dias por data
-        //Pesquisar Bom Dia por string
-        //Pesquisar Bom Dia por data
-        //Ordenar vetor
-        //Sair
 }
